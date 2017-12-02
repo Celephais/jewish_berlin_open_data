@@ -43,7 +43,7 @@ import sqlite3
 # connect to database
 conn = sqlite3.connect("adresses_31.db")
 
-df = pd.read_sql('SELECT * FROM census_merge', conn)
+df = pd.read_sql('SELECT * FROM census_merge WHERE x_mercator_census IS NOT NULL', conn)
 df['x_mercator_census'] = df['x_mercator_census'].astype('float')
 df['y_mercator_census'] = df['y_mercator_census'].astype('float')
 
